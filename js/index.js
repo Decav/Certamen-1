@@ -119,46 +119,49 @@ document.querySelector("#registrar-btn").addEventListener("click", ()=>{
     
     let menu = {};
 
-    //Preguntar por horarios y los precios entre el valor minimo y maximo
-    if ((horario == "Desayuno") && (parseInt(valor) > 1000 && parseInt(valor) < 10000)){ 
-        menu.nombre = nombre;
-        menu.horario = horario;
-        menu.valor = valor;
-        menu.descripcion = descripcion;
-        console.log(menu);
-        ordenes.push(menu); 
-        cargarTabla();
-        Swal.fire("Exito!","Registro de Menu realizado","success");
-        
-    }else if((horario == "Almuerzo") && (parseInt(valor) > 10000 && parseInt(valor) < 20000)){ 
-        menu.nombre = nombre;
-        menu.horario = horario;
-        menu.valor = valor;
-        menu.descripcion = descripcion;
-        console.log(menu);
-        ordenes.push(menu); 
-        cargarTabla();
-        Swal.fire("Exito!","Registro de Menu realizado","success");
-    }else if((horario == "Once") && (parseInt(valor) > 5000 && parseInt(valor) < 15000)){
-        menu.nombre = nombre;
-        menu.horario = horario;
-        menu.valor = valor;
-        menu.descripcion = descripcion;
-        console.log(menu);
-        ordenes.push(menu); 
-        cargarTabla();
-        Swal.fire("Exito!","Registro de Menu realizado","success");
-    }else if((horario == "Cena") && (parseInt(valor) > 15000)){
-        menu.nombre = nombre;
-        menu.horario = horario;
-        menu.valor = valor;
-        menu.descripcion = descripcion;
-        console.log(menu);
-        ordenes.push(menu); 
-        cargarTabla();
-        Swal.fire("Exito!","Registro de Menu realizado","success");
+    //Validar ingreso del nombre, horarios y los precios entre el valor minimo y maximo
+    if ((nombre != "") && (nombre != " ")){
+        if ((horario == "Desayuno") && (parseInt(valor) > 1000 && parseInt(valor) < 10000)){ 
+            menu.nombre = nombre;
+            menu.horario = horario;
+            menu.valor = valor;
+            menu.descripcion = descripcion;
+            console.log(menu);
+            ordenes.push(menu); 
+            cargarTabla();
+            Swal.fire("Exito!","Registro de Menu realizado","success");
+            
+        }else if((horario == "Almuerzo") && (parseInt(valor) > 10000 && parseInt(valor) < 20000)){ 
+            menu.nombre = nombre;
+            menu.horario = horario;
+            menu.valor = valor;
+            menu.descripcion = descripcion;
+            console.log(menu);
+            ordenes.push(menu); 
+            cargarTabla();
+            Swal.fire("Exito!","Registro de Menu realizado","success");
+        }else if((horario == "Once") && (parseInt(valor) > 5000 && parseInt(valor) < 15000)){
+            menu.nombre = nombre;
+            menu.horario = horario;
+            menu.valor = valor;
+            menu.descripcion = descripcion;
+            console.log(menu);
+            ordenes.push(menu); 
+            cargarTabla();
+            Swal.fire("Exito!","Registro de Menu realizado","success");
+        }else if((horario == "Cena") && (parseInt(valor) > 15000)){
+            menu.nombre = nombre;
+            menu.horario = horario;
+            menu.valor = valor;
+            menu.descripcion = descripcion;
+            console.log(menu);
+            ordenes.push(menu); 
+            cargarTabla();
+            Swal.fire("Exito!","Registro de Menu realizado","success");
+        }else{
+            Swal.fire("Error","El valor no esta dentro del rango correspondiente al horario!","error");
+        }
     }else{
-        Swal.fire("Error","El valor no esta dentro del rango correspondiente al horario!","error");
+        Swal.fire("Error","Debe ingresar un Nombre!","error");
     }
-    
 });
